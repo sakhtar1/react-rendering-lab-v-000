@@ -25,6 +25,10 @@ class Circles extends React.Component {
     this.setState({ circles: newCircles });
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return (this.props.handleClick !== nextProps.handleClick);
+  }
+
   render() {
     const renderCircles = this.state.circles.map((circle, index) => 
       <Circle color={circle.color} key={index} /> 
